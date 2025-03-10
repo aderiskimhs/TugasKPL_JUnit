@@ -14,46 +14,46 @@ import org.junit.runner.RunWith
 class MainActivityInstrumentedTest {
 
     /*
-     * Test case 1: Verifies that clicking the increment button increases the counter value
-     * This test ensures that when the user clicks the increment button,
-     * the counter text is updated to show the incremented value.
-     * We start with the default counter value of 0, click the button once,
-     * and expect the counter to display "1".
+     * Kasus uji 1: Memverifikasi bahwa mengklik tombol tambah akan meningkatkan nilai penghitung
+     * Pengujian ini memastikan bahwa ketika pengguna mengklik tombol tambah,
+     * teks penghitung diperbarui untuk menampilkan nilai yang bertambah.
+     * Kita mulai dengan nilai penghitung default 0, klik tombol sekali,
+     * dan mengharapkan penghitung menampilkan "1".
      */
     @Test
     fun testIncrementButton() {
-        // Launch the activity
+        // Meluncurkan aktivitas
         ActivityScenario.launch(MainActivity::class.java)
 
-        // Verify initial counter is 0
+        // Memverifikasi bahwa nilai awal penghitung adalah 0
         onView(withId(R.id.counter_text)).check(matches(withText("0")))
 
-        // Click the increment button
+        // Klik tombol tambah
         onView(withId(R.id.increment_button)).perform(click())
 
-        // Verify that counter has been incremented to 1
+        // Memverifikasi bahwa penghitung telah bertambah menjadi 1
         onView(withId(R.id.counter_text)).check(matches(withText("1")))
     }
 
     /*
-     * Test case 2: Verifies that clicking the decrement button decreases the counter value
-     * This test ensures that when the user clicks the decrement button,
-     * the counter text is updated to show the decremented value.
-     * We start with the default counter value of 0, click the button once,
-     * and expect the counter to display "-1".
+     * Kasus uji 2: Memverifikasi bahwa mengklik tombol kurang akan mengurangi nilai penghitung
+     * Pengujian ini memastikan bahwa ketika pengguna mengklik tombol kurang,
+     * teks penghitung diperbarui untuk menampilkan nilai yang berkurang.
+     * Kita mulai dengan nilai penghitung default 0, klik tombol sekali,
+     * dan mengharapkan penghitung menampilkan "-1".
      */
     @Test
     fun testDecrementButton() {
-        // Launch the activity
+        // Meluncurkan aktivitas
         ActivityScenario.launch(MainActivity::class.java)
 
-        // Verify initial counter is 0
+        // Memverifikasi bahwa nilai awal penghitung adalah 0
         onView(withId(R.id.counter_text)).check(matches(withText("0")))
 
-        // Click the decrement button
+        // Klik tombol kurang
         onView(withId(R.id.decrement_button)).perform(click())
 
-        // Verify that counter has been decremented to -1
+        // Memverifikasi bahwa penghitung telah berkurang menjadi -1
         onView(withId(R.id.counter_text)).check(matches(withText("-1")))
-        }
+    }
 }

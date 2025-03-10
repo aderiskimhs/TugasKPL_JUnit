@@ -16,42 +16,42 @@ class CounterRepositoryTest {
     }
 
     /*
-     * Test case 1: Verifies that the counter value is correctly saved and retrieved
-     * This test ensures that when we save a counter value using saveCounter() method,
-     * the getCounter() method returns the same value, confirming the basic functionality
-     * of the CounterRepository class is working as expected.
+     * Kasus uji 1: Memverifikasi bahwa nilai penghitung disimpan dan diambil dengan benar
+     * Pengujian ini memastikan bahwa ketika kita menyimpan nilai penghitung menggunakan metode saveCounter(),
+     * metode getCounter() akan mengembalikan nilai yang sama. Hal ini mengonfirmasi bahwa
+     * fungsi dasar dari kelas CounterRepository bekerja sebagaimana mestinya.
      */
     @Test
     fun testSaveAndGetCounter() {
-        // Given a counter repository with default value
+        // Diberikan sebuah repository penghitung dengan nilai awal default
         assertEquals(0, counterRepository.getCounter())
 
-        // When we save a new counter value
+        // Ketika kita menyimpan nilai penghitung baru
         val newValue = 10
         counterRepository.saveCounter(newValue)
 
-        // Then the getCounter method should return the saved value
+        // Maka metode getCounter harus mengembalikan nilai yang telah disimpan
         assertEquals(newValue, counterRepository.getCounter())
     }
 
     /*
-     * Test case 2: Verifies that the isValidCounter method correctly identifies valid and invalid counter values
-     * This test checks the boundary conditions of our validation logic,
-     * ensuring values within the range -100 to 100 are considered valid,
-     * while values outside this range are considered invalid.
+     * Kasus uji 2: Memverifikasi bahwa metode isValidCounter dapat mengidentifikasi nilai penghitung yang valid dan tidak valid
+     * Pengujian ini memeriksa batasan dari logika validasi,
+     * memastikan bahwa nilai dalam rentang -100 hingga 100 dianggap valid,
+     * sedangkan nilai di luar rentang tersebut dianggap tidak valid.
      */
     @Test
     fun testIsValidCounter() {
-        // Valid counter values should return true
+        // Nilai penghitung yang valid harus mengembalikan true
         assertTrue(counterRepository.isValidCounter(0))
         assertTrue(counterRepository.isValidCounter(100))
         assertTrue(counterRepository.isValidCounter(-100))
         assertTrue(counterRepository.isValidCounter(50))
 
-        // Invalid counter values should return false
+        // Nilai penghitung yang tidak valid harus mengembalikan false
         assertFalse(counterRepository.isValidCounter(101))
         assertFalse(counterRepository.isValidCounter(-101))
         assertFalse(counterRepository.isValidCounter(1000))
         assertFalse(counterRepository.isValidCounter(-1000))
-        }
+    }
 }
